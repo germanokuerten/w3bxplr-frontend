@@ -16,15 +16,15 @@ const Navbar = () => {
 
     return (
         <nav className='w-full flex md:justify-center justify-between items-center p-4'>
-            <div className='md:flex-[0.5] flex-initial justify-center items-center'>
-                <img src={logo} alt="logo" className='w-40 cursor-pointer hover:shadow-[#109ee0] shadow-lg'/>
+            <div className='md:flex-[0.95] flex-initial justify-center items-center'>
+                <img src={logo} alt="logo" className='w-40 cursor-pointer rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg mt-0.5 -mb-3'/>
             </div>
-            <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-4'>
+            <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-4 mt-1'>
                 {/* {["Github", "LinkedIn"].map((item, index) => (
                     <NavbarItem key={item + index} title={item} />
                 ))} */}
-                <li className='cursor-pointer py-2 px-3 mx-3 hover:shadow-[#109ee0] shadow-lg cursor-pointer'>GitHub</li>
-                <li className='cursor-pointer py-2 px-3 mx-3 hover:shadow-[#109ee0] shadow-lg cursor-pointer'>LinkedIn</li>
+                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg cursor-pointer'><a href="https://github.com/germanokuerten/w3bxplr-frontend" target="_blank">GitHub</a></li>
+                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg cursor-pointer'><a href="https://www.linkedin.com/in/germanokuerten/" target="_blank">LinkedIn</a></li>
             </ul>
             <div className='flex relative'>
                 {toggleMenu 

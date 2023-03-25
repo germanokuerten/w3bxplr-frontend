@@ -42,15 +42,15 @@ const Welcome = () => {
             <div className='flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4'>
                 <div className='flex flex-1 justify-start flex-col md:mr-10'>
                     <h1 className='text-3xl sm:text-5xl text-white text-gradient py-1 font-bold [text-shadow:_5px_5px 5px_0_rgb(255_255_255_/_40%)]'>
-                        XPLR the <br /> W3B
+                        XPLR <br /> the W3B
                     </h1>
                     <p className='text-left mt-3 text-white font-light w-11/14 text-base'>
-                        Explore the Ethereum blockchain with W3BXPLR
+                        Explore the Ethereum blockchain with W3BXPLR.com
                     </p>
 
                     <br />
                     <input 
-                        className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-300 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
+                        className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
                         type="text" id="inputField" 
                         name="inputField" 
                         maxLength="120" 
@@ -64,6 +64,7 @@ const Welcome = () => {
                         >
                             <p className='text-base font-semibold'>Search</p>
                     </button>
+                    {showResult && <SearchResults result={{ result, searchInput }} />}
                     {/* <button
                         type='button'
                         onClick={connectWallet}
@@ -73,12 +74,6 @@ const Welcome = () => {
                     </button> */}
 
                     {/* Input */}
-
-                    <div>
-                    
-
-                        
-                        </div>
                         
                     {/* <div className='sm:grid-cols-3 grid-cols-2 w-full mt-10'>
                         <div className={`rounded-tl-2xl ${commonStyles}`}>
@@ -105,13 +100,8 @@ const Welcome = () => {
         </div>
         <div>
             
-            {showResult && <SearchResults result={{ result, searchInput }} />}
         </div>
-        </div>
-
-       
-
-        
+        </div>  
     )
 }
 

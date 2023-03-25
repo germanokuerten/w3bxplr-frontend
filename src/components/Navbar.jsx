@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className='md:flex-[0.95] flex-initial justify-center items-center'>
                 <img src={logo} alt="logo" className='w-40 cursor-pointer rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg mt-0.5 -mb-3'/>
             </div>
-            <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-4 mt-1'>
+            <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-4 mt-2'>
                 {/* {["Github", "LinkedIn"].map((item, index) => (
                     <NavbarItem key={item + index} title={item} />
                 ))} */}

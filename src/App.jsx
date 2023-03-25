@@ -7,13 +7,13 @@ import { Navbar, Welcome, Footer, Services, Transactions, Loader } from "./compo
 const App = () => {
   return (
     <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
+      <div className="gradient-bg-welcome h-screen">
         <Navbar />
         <Welcome />
-      </div>
         {/* <Services /> */}
-        <Transactions />
-        <Footer />
+        {/* <Transactions /> */}
+        {/* <Footer /> */}
+      </div>
     </div>
   )
 }

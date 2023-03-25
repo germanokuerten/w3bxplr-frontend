@@ -4,11 +4,11 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 import logo from '../../images/logo.png'
 
-const NavbarItem = ({ title, classprops }) => {
-    return (
-        <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
-    )
-}
+// const NavbarItem = ({ title, classprops }) => {
+//     return (
+//         <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
+//     )
+// }
 
 const Navbar = () => {
 
@@ -23,8 +23,8 @@ const Navbar = () => {
                 {/* {["Github", "LinkedIn"].map((item, index) => (
                     <NavbarItem key={item + index} title={item} />
                 ))} */}
-                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg cursor-pointer'><a href="https://github.com/germanokuerten/w3bxplr-frontend" target="_blank">GitHub</a></li>
-                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg cursor-pointer'><a href="https://www.linkedin.com/in/germanokuerten/" target="_blank">LinkedIn</a></li>
+                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg border border-sky-600'><a href="https://github.com/germanokuerten/w3bxplr-frontend" target="_blank">GitHub</a></li>
+                <li className='cursor-pointer py-2 px-3 mx-3 rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg border border-sky-600'><a href="https://www.linkedin.com/in/germanokuerten/" target="_blank">LinkedIn</a></li>
             </ul>
             <div className='flex relative'>
                 {toggleMenu 

@@ -12,7 +12,6 @@ const commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-ce
 
 // Optional for more wallets
 // const providerOptions = {
-
 // }
 
 const Welcome = () => {
@@ -78,9 +77,7 @@ const Welcome = () => {
                         <p className='text-left mt-3 text-white font-light w-11/14 text-base'>
                             Explore the Ethereum blockchain with W3BXPLR.com
                         </p>
-
                         <br />
-
                         { 
                             web3Provider === null ? ( // run if null
                                 <button
@@ -100,7 +97,6 @@ const Welcome = () => {
                                 </button>
                             ) 
                         }
-
                         <br />
                         <form class="flex items-center">
                             <label for="voice-search" class="sr-only">Search</label>
@@ -112,8 +108,7 @@ const Welcome = () => {
                                 maxLength="120" 
                                 placeholder="Search by Wallet Address" required 
                                 defaultValue={address}
-                                onChange={changeHandler}
-                                
+                                onChange={changeHandler} 
                             />
                             <button 
                                     type='button'
@@ -153,8 +148,6 @@ const Welcome = () => {
                     </div>
                 </div>
             </div>
-        <div> 
-        </div>
         </div>  
     )
 }

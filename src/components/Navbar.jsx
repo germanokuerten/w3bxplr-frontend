@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import axios from "axios";
 import { HiMenuAlt4 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
+import axios from "axios";
 
 import styles from "../styles/Home.module.css"
 import logo from '../../images/logo2.png'

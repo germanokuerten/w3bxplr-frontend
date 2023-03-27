@@ -1,7 +1,3 @@
-// Not necessary:
-// import { useState } from 'react'
-// import './App.css'
-
 import { Navbar, Welcome, Footer, Services, Transactions, Loader } from "./components"
 
 const App = () => {

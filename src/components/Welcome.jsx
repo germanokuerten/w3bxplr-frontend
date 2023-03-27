@@ -10,9 +10,9 @@ import { ethers } from 'ethers'
 
 const commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white'
 
-// Optional for more wallets
-// const providerOptions = {
-// }
+// Option for more wallets
+const providerOptions = {
+}
 
 const Welcome = () => {
 
@@ -21,15 +21,6 @@ const Welcome = () => {
     const [address, setAddress] = useState("");
     const [searchInput, setSearchInput] = useState("")
     const [web3Provider, setWeb3Provider] = useState(null)
-    const [ethPrice, setEthPrice] = useState("")
-
-    useEffect(() => {
-        const getethprice = async () => {
-            const response = await axios.get('https://w3bxplr-backend.vercel.app/getethprice', {})
-            setEthPrice(response.data.usdPrice)
-        }
-        getethprice()
-    })
 
     async function connectWallet() {
         try {
@@ -60,7 +51,6 @@ const Welcome = () => {
     const response = await axios.get("https://w3bxplr-backend.vercel.app/address", {
         params: { address: searchInput || address },
     });
-
         setResult(response.data.result)
         setShowResult(true)
         console.log(response.data.result)
@@ -79,7 +69,7 @@ const Welcome = () => {
                         </p>
                         <br />
                         { 
-                            web3Provider === null ? ( // run if null
+                            web3Provider === null ? (
                                 <button
                                     type='button'
                                     onClick={connectWallet}
@@ -121,30 +111,7 @@ const Welcome = () => {
                                     <p className='text-base font-semibold'></p>
                             </button>
                         </form>
-
                         {showResult && <SearchResults result={{ result, searchInput }} />}
-
-                        {/* Input */}    
-                        {/* <div className='sm:grid-cols-3 grid-cols-2 w-full mt-10'>
-                            <div className={`rounded-tl-2xl ${commonStyles}`}>
-                                Block Information
-                            </div>
-                            <div className={commonStyles}>
-                                Security
-                            </div>
-                            <div className={`rounded-tr-2xl ${commonStyles}`}>
-                                Ethereum
-                            </div>
-                            <div className={`rounded-bl-2xl ${commonStyles}`}>
-                                WEB 3.0
-                            </div>
-                            <div className={`${commonStyles}`}>
-                                Low Fees
-                            </div>
-                            <div className={`rounded-br-2xl ${commonStyles}`}>
-                                Blockchain
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>

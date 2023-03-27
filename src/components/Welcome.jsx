@@ -100,7 +100,7 @@ const Welcome = () => {
                         
 
                         <input 
-                            className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-l-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
+                            className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-l-md py-1.5 sm:py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
                             type="text" id="inputField" 
                             name="inputField" 
                             maxLength="120" 

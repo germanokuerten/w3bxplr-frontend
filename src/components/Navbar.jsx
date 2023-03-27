@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from "axios";
 import { HiMenuAlt4 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 
+import styles from "../styles/Home.module.css"
 import logo from '../../images/logo2.png'
 
 // const NavbarItem = ({ title, classprops }) => {
@@ -13,14 +15,26 @@ import logo from '../../images/logo2.png'
 const Navbar = () => {
 
     const [toggleMenu, setToggleMenu] = useState(false)
+    const [ethPrice, setEthPrice] = useState("")
+
+    useEffect(() => {
+        const getethprice = async () => {
+            const response = await axios.get('https://w3bxplr-backend.vercel.app/getethprice', {})
+            setEthPrice(response.data.usdPrice)
+        }
+        getethprice()
+    })
 
     return (
         <nav className='w-full flex md:justify-center justify-between items-center p-4'>
             <div className='md:flex-[0.95] flex-initial justify-center items-center'>
-                <a href="https://www.w3bxplr.com">
-                <img src={logo} alt="logo" className='w-40 cursor-pointer rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg mt-0.5 -mb-3'/>
+                <a href="https://www.w3bxplr.com" alt="w3bxplr" className='inline-block'>
+                <img src={logo} alt="logo" className='w-40 cursor-pointer rounded-tl rounded-br hover:shadow-[#109ee0] shadow-lg mt-2 -mb-3'/>
                 </a>
             </div>
+            {/* <div className="text-left mt-5 text-white font-light w-11/14 text-base">
+                {`ETH price: $${Number(ethPrice).toFixed(2)}`}
+            </div> */}
             <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-4 mt-2'>
                 {/* {["Github", "LinkedIn"].map((item, index) => (
                     <NavbarItem key={item + index} title={item} />
@@ -41,8 +55,8 @@ const Navbar = () => {
                         <li className='text-xl w-full my-2'>
                             <AiOutlineClose onClick={() => setToggleMenu(false)} />
                         </li>
-                        <li className='cursor-pointer py-2 px-5 mx-3 hover:shadow-[#109ee0] shadow-lg cursor-pointer my-2 text-lg'><a href="https://github.com/germanokuerten/w3bxplr-frontend" target="_blank">GitHub</a></li>
-                        <li className='cursor-pointer py-2 px-5 mx-3 hover:shadow-[#109ee0] shadow-lg cursor-pointer'><a href="https://www.linkedin.com/in/germanokuerten/" target="_blank">LinkedIn</a></li>
+                        <li className='cursor-pointer py-2 px-5 mx-3 hover:shadow-[#109ee0] shadow-lg my-2 text-lg'><a href="https://github.com/germanokuerten/w3bxplr-frontend" target="_blank">GitHub</a></li>
+                        <li className='cursor-pointer py-2 px-5 mx-3 hover:shadow-[#109ee0] shadow-lg'><a href="https://www.linkedin.com/in/germanokuerten/" target="_blank">LinkedIn</a></li>
                     </ul>
                 )}
             </div>

@@ -2,29 +2,55 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import { SiEthereum } from 'react-icons/si'
 import { BsInfoCircle } from 'react-icons/bs'
 import axios from "axios"
-
 import SearchResults from './SearchResults'
-
 import { useState } from 'react'
 import { Loader } from './'
+import Web3Modal from 'web3modal'
+import { ethers } from 'ethers'
 
 const commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white'
+
+const providerOptions = {
+
+}
 
 const Welcome = () => {
 
     const [showResult, setShowResult] = useState(false) // false when we start
     const [result, setResult] = useState([])
+    const [address, setAddress] = useState("");
     const [searchInput, setSearchInput] = useState("")
+    
+    const [web3Provider, setWeb3Provider] = useState(null)
+
+    async function connectWallet() {
+        try {
+            let web3Modal = new Web3Modal({
+                cacheProvider: false,
+                providerOptions,
+            })
+            const web3ModalInstance = await web3Modal.connect()
+            const web3ModalPRovider = new ethers.providers.Web3Provider(web3ModalInstance)
+            if(web3ModalPRovider){
+                setWeb3Provider(web3ModalPRovider)
+                setAddress(web3ModalPRovider.provider.selectedAddress)
+                // console.log(web3ModalPRovider.provider.selectedAddress)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     const changeHandler = (e) => {
         setSearchInput(e.target.value)
     }
 
     const handleSearch = async () => {
+
         document.querySelector("#inputField").value = "";
 
     const response = await axios.get("https://w3bxplr-backend.vercel.app/address", {
-        params: { address: searchInput },
+        params: { address: searchInput || address },
     });
 
         setResult(response.data.result)
@@ -32,9 +58,6 @@ const Welcome = () => {
         console.log(response.data.result)
     }
 
-    const connectWallet = () => {
-
-    }
 
     return (
         <div>
@@ -49,13 +72,35 @@ const Welcome = () => {
                     </p>
 
                     <br />
+
+                    { 
+                        web3Provider === null ? (
+                            // run if null
+                            <button
+                                type='button'
+                                onClick={connectWallet}
+                                className='cursor-pointer flex flex-row justify-center items-center my-5 p-3 rounded-full hover:shadow-[#109ee0] shadow-lg text-white border border-sky-500'
+                                >
+                                <p className='text-base font-semibold'>Connect Wallet</p>
+                            </button>
+                        ) : (
+                            <div>
+                            </div>
+                        ) 
+                    }
+
+                    
+
+                    <br />
                     <input 
                         className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
                         type="text" id="inputField" 
                         name="inputField" 
                         maxLength="120" 
                         placeholder="Search by Wallet Address" required 
+                        defaultValue={address}
                         onChange={changeHandler}
+                        
                     />
                     <button 
                             type='button'
@@ -65,13 +110,7 @@ const Welcome = () => {
                             <p className='text-base font-semibold'>Search</p>
                     </button>
                     {showResult && <SearchResults result={{ result, searchInput }} />}
-                    {/* <button
-                        type='button'
-                        onClick={connectWallet}
-                        className='cursor-pointer flex flex-row justify-center items-center my-5 p-3 rounded-full hover:shadow-[#109ee0] shadow-lg text-white border border-sky-500'
-                    >
-                        <p className='text-base font-semibold'>Connect Wallet</p>
-                    </button> */}
+                    
 
                     {/* Input */}
                         

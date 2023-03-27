@@ -90,7 +90,7 @@ const Welcome = () => {
                         <form class="flex items-center">
                             <label for="voice-search" class="sr-only">Search</label>        
                             <input 
-                                className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-l-md py-1.5 sm:py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
+                                className="placeholder:italic placeholder:text-slate-400 block w-full border border-slate-400 rounded-l-md sm:rounded-l-md py-1.5 sm:py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm bg-[#100F15] text-white" 
                                 type="text" id="inputField" 
                                 name="inputField" 
                                 maxLength="120" 
@@ -99,12 +99,12 @@ const Welcome = () => {
                                 onChange={changeHandler} 
                             />
                             <button 
-                                    type='button'
-                                    className="cursor-pointer flex flex-row justify-center items-center my-5 py-2 pl-3 pr-3 rounded-r-md hover:shadow-[#109ee0] shadow-lg text-white border border-sky-500" 
-                                    onClick={handleSearch}             
-                                >
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                    <p className='text-base font-semibold'></p>
+                                type='button'
+                                className="cursor-pointer flex flex-row justify-center items-center my-5 py-2 pl-3 pr-3 rounded-r-md hover:shadow-[#109ee0] shadow-lg text-white border border-sky-500" 
+                                onClick={handleSearch}             
+                            >
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                <p className='text-base font-semibold'></p>
                             </button>
                         </form>
                         {showResult && <SearchResults result={{ result, searchInput }} />}
